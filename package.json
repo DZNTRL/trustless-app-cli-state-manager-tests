@@ -1,0 +1,22 @@
+{
+  "name": "pro-web-app-cli-state-manager-tests",
+  "scripts": {
+    "test": "cd ../pro-web-app-cli-state-manager/ && yarn run build && cd ../pro-web-app-cli-state-manager-tests && npx tsc --skipLibCheck && npx mocha ./dist/js/**/*-spec.js --timeout 5000"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:joshuaebowling/pro-web-app-cli-state-manager-tests.git",
+  "author": "joshuaebowling <joshuaebowling@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^9.1.2",
+    "redux-mock-store": "^1.5.4",
+    "sinon": "^11.1.2"
+  },
+  "dependencies": {
+    "@types/should": "^13.0.0",
+    "pro-web-app-cli-state-manager": "./pro-web-app-cli-state-manager",
+    "pro-web-common": "./pro-web-common",
+    "redux-thunk": "^2.3.0"
+  }
+}
