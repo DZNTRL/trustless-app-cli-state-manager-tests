@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@types/should": "^13.0.0",
-    "pro-web-app-cli-state-manager": "./pro-web-app-cli-state-manager",
-    "pro-web-common": "./pro-web-common",
+    "pro-web-app-cli-state-manager": "1.0.7",
+    "pro-web-common": "1.0.1",
     "redux-thunk": "^2.3.0"
   }
 }
