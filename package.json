@@ -14,9 +14,10 @@
     "sinon": "^11.1.2"
   },
   "dependencies": {
+    "@types/mocha": "^9.0.0",
     "@types/should": "^13.0.0",
-    "pro-web-app-cli-state-manager": "1.0.7",
-    "pro-web-common": "1.0.1",
+    "pro-web-app-cli-state-manager": "1.0.8",
+    "pro-web-common": "1.0.2",
     "redux-thunk": "^2.3.0"
   }
 }

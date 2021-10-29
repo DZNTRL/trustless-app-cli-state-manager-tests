@@ -6,7 +6,7 @@ import { StateManager } from "pro-web-app-cli-state-manager"
 import { UserActionKeys } from "pro-web-common/dist/js/enums/state-manager/UserActionKeys"
 import { AppActionKeys } from "pro-web-common/dist/js/enums/state-manager/AppActionKeys"
 import { Notifications } from "pro-web-common/dist/js/enums/state-manager/Notifications"
-import { ResponseMessages } from "pro-web-core/dist/js/enums/ResponseMessages"
+import { ResponseMessages } from "pro-web-common/dist/js/enums/ResponseMessages"
 import should from "should"
 import { LoadingStates } from "pro-web-common/dist/js/enums/state-manager/LoadingStates"
 
