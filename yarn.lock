@@ -584,10 +584,10 @@ pro-web-app-cli-api-service@1.0.1:
     axios "^0.22.0"
     pro-web-common "1.0.4"
 
-pro-web-app-cli-state-manager@1.0.8:
-  version "1.0.8"
-  resolved "http://localhost:4873/pro-web-app-cli-state-manager/-/pro-web-app-cli-state-manager-1.0.8.tgz#1b9dcdf0391c8978ad9b2a9441644ccc55bfa651"
-  integrity sha512-MfaV2hI54buN28rwlTkHgVjg+BSKw3rQN1LEAED90NdjScVoCUbjwFUbogOJKHGsKAiT26VSVSTqeRPnzx/DCw==
+pro-web-app-cli-state-manager@1.0.9:
+  version "1.0.9"
+  resolved "http://localhost:4873/pro-web-app-cli-state-manager/-/pro-web-app-cli-state-manager-1.0.9.tgz#6e71a153e57adbac16f8bb0e27990e4151324f26"
+  integrity sha512-jUdUcVMfwQmdHjTVaGlwYw96PymC1s3CkMFnH+sQgJc+0d3SxtqQEqHJBMBuW5HzOd6r7IG3zxEIR1ugCUaTzQ==
   dependencies:
     pro-web-app-cli-api-service "1.0.1"
     pro-web-common "1.0.4"

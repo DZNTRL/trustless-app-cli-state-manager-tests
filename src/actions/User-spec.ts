@@ -183,5 +183,33 @@ describe("User Actions Suite: should generate dispatch with property type and pa
         })
     
     })
+    describe("generate for creating user", function() {
+        it("should generate for setCreateUsername", (done) => {
+            const store = mockStore(StateManager.states.user)
+            const expectedActions = [
+                { type: UserActionKeys.SET_CREATE_USERNAME, payload: "TEST" }
+            ]
+            StateManager.actions.user(svc).setCreateUsername("TEST")(store.dispatch)
+            setTimeout(() => {
+                const actions = store.getActions()
+                should(actions).eql(expectedActions)
+                done()    
+            }, 1000)
+
+        })
+        it("should generate for setCreateUserPublicKey", (done) => {
+            const store = mockStore(StateManager.states.user)
+            const expectedActions = [
+                { type: UserActionKeys.SET_CREATE_USER_PUBLICKEY, payload: "TEST" }
+            ]
+            StateManager.actions.user(svc).setCreateUserPublicKey("TEST")(store.dispatch)
+            setTimeout(() => {
+                const actions = store.getActions()
+                should(actions).eql(expectedActions)
+                done()    
+            }, 1000)
+
+        })
+    })
 
 })
