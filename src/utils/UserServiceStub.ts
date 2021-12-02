@@ -3,16 +3,16 @@ import { IUser } from "pro-web-common/dist/js/interfaces/service/IUser"
 import { IUser as IUserRepo } from "pro-web-common/dist/js/interfaces/repo/IUser"
 import { IUser as IUserModel } from "pro-web-common/dist/js/interfaces/models/IUser"
 import mysql from "mysql2/promise"
-import Core from "pro-web-core"
 import { IResponse } from "pro-web-common/dist/js/interfaces/IResponse"
-import { ResponseMessages } from "pro-web-core/dist/js/enums/ResponseMessages"
+import { ResponseMessages } from "pro-web-common/dist/js/enums/ResponseMessages"
+import { Response } from "pro-web-common/dist/js/Response"
 
 export class User implements IUser {
     repo: IUserRepo
     constructor(pool: mysql.Pool) {
     }
     checkUsernameUnique(username) {
-        const resp = new Core.Response<boolean>(true)
+        const resp = new Response<boolean>(true)
         if(username === null) {
             resp.Data = null
             resp.IsError = true
@@ -30,7 +30,7 @@ export class User implements IUser {
 
     }
     createUser(username, publicKey) {
-        const resp = new Core.Response<number>(1)
+        const resp = new Response<number>(1)
         if(username === null) {
             resp.Data = null
             resp.IsError = true
@@ -49,7 +49,7 @@ export class User implements IUser {
         })
     }
     getPublicKey(username) {
-        const resp = new Core.Response<string>("TEST")
+        const resp = new Response<string>("TEST")
         if(username === "TEST") {
             
         } else {
@@ -61,7 +61,7 @@ export class User implements IUser {
         })
     }
     requestLogin(username) {
-        const resp = new Core.Response<string>("TEST")
+        const resp = new Response<string>("TEST")
         if(username === null) {
             resp.Data = null
             resp.Message = ResponseMessages.NotFound.toString()
@@ -80,7 +80,7 @@ export class User implements IUser {
         })
     }
     login(username, challenge) {
-        const resp = new Core.Response<boolean>(true)
+        const resp = new Response<boolean>(true)
         if(username === null) {
             resp.Data = null
             resp.IsError = true
@@ -98,7 +98,7 @@ export class User implements IUser {
         })
     }
     get(username) {
-        const resp = new Core.Response<IUserModel>(new Core.Models.User())
+        const resp = new Response<IUserModel>({id: 0, username: "", publicKey: "", isAdmin: false})
         if(username === "TEST") {
 
         } else {

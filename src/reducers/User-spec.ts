@@ -5,7 +5,9 @@ import should from "should"
 import { Notifications } from "pro-web-common/dist/js/enums/state-manager/Notifications"
 
 describe("User Reducer Suite", function() {
+    describe("checkusernameunique tests", function() {
 
+    })
     it("should have initial state", () => {
         //@ts-ignore
         const state = StateManager.reducers.user(undefined, {type: "", payload: null})
@@ -31,6 +33,16 @@ describe("User Reducer Suite", function() {
         const state2 = StateManager.reducers.user(state, {type: UserActionKeys.SET_USERNAME, payload: "TEST"})
         should(state2.username).eql("TEST")
     })
-
+    it("should createuser > setusername & challenge", () => {
+        const state = StateManager.reducers.user(undefined, {type: "", payload: null})
+        const state1 = StateManager.reducers.user(state, {type: UserActionKeys.SET_USERNAME, payload: "TEST"})
+        should(state1.username).eql("TEST") 
+        const state2 = StateManager.reducers.user(state1, {type: UserActionKeys.REQUEST_LOGIN, payload: "TEST"})
+        should(state2.username).eql(null)
+        should(state2.usernameUnique).eql(null)
+        should(state2.challenge).eql("TEST")
+        should(state2.username).eql("TEST")
+                
+    })
 
 })
