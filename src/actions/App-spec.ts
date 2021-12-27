@@ -1,6 +1,6 @@
 import "should"
 import configureMockStore from "redux-mock-store"
-import { User as UserServiceStub } from "../utils/UserServiceStub"
+import { User as UserServiceStub } from "pro-web-common/dist/js/stubs/api-service/UserServiceStub"
 import thunk from "redux-thunk"
 import { StateManager } from "pro-web-app-cli-state-manager"
 import { AppActionKeys } from "pro-web-common/dist/js/enums/state-manager/AppActionKeys"
