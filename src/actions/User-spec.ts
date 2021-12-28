@@ -186,6 +186,53 @@ describe("User Actions Suite: should generate dispatch with property type and pa
         })
     
     })
+    describe("generate for logout", function() {
+        it("generate for logout success", (done) => {
+            const store = mockStore(StateManager.states.user)
+            const expectedActions = [
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
+                { type: UserActionKeys.SET_USERNAME, payload: null},
+                { type: AppActionKeys.SET_NOTIFICATION, payload: { type: Notifications.success, message: ResponseMessages.OK.toString()} }
+            ]
+            StateManager.actions.user(svc).logout(goodUser)(store.dispatch)
+            setTimeout(() => {
+                const actions = store.getActions()
+                should(actions).eql(expectedActions)
+                done()    
+            }, 1000)
+        })
+        it("generate for login fail", (done) => {
+            const store = mockStore(StateManager.states.user)
+            const expectedActions = [
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
+                { type: AppActionKeys.SET_NOTIFICATION, payload: { type: Notifications.warning, message: ResponseMessages.NotFound.toString()} }
+            ]
+            StateManager.actions.user(svc).logout("T")(store.dispatch)
+            setTimeout(() => {
+                const actions = store.getActions()
+                should(actions).eql(expectedActions)
+                done()    
+            }, 1000)
+        })
+        it("generate for login error", (done) => {
+            const store = mockStore(StateManager.states.user)
+            const expectedActions = [
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
+                { type: AppActionKeys.SET_NOTIFICATION, payload: { type: Notifications.danger, message: ResponseMessages.NotFound.toString()} },
+                { type: AppActionKeys.SET_LOADING, payload: LoadingStates.error }
+            ]
+            StateManager.actions.user(svc).logout(null)(store.dispatch)
+            setTimeout(() => {
+                const actions = store.getActions()
+                should(actions).eql(expectedActions)
+                done()    
+            }, 1000)
+        })
+    
+    })
+
     describe("generate for creating user", function() {
         it("should generate for setCreateUsername", (done) => {
             const store = mockStore(StateManager.states.user)
