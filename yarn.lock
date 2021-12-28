@@ -89,6 +89,13 @@ argparse@^2.0.1:
   resolved "http://localhost:4873/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
+axios@^0.22.0:
+  version "0.22.0"
+  resolved "http://localhost:4873/axios/-/axios-0.22.0.tgz#bf702c41fb50fbca4539589d839a077117b79b25"
+  integrity sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==
+  dependencies:
+    follow-redirects "^1.14.4"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "http://localhost:4873/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -229,6 +236,11 @@ flat@^5.0.2:
   version "5.0.2"
   resolved "http://localhost:4873/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
   integrity sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
+
+follow-redirects@^1.14.4:
+  version "1.14.6"
+  resolved "http://localhost:4873/follow-redirects/-/follow-redirects-1.14.6.tgz#8cfb281bbc035b3c067d6cd975b0f6ade6e855cd"
+  integrity sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -564,19 +576,36 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "http://localhost:4873/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
 
-pro-web-app-cli-state-manager@^1.0.19:
-  version "1.0.19"
-  resolved "http://localhost:4873/pro-web-app-cli-state-manager/-/pro-web-app-cli-state-manager-1.0.19.tgz#5f80e7d191e4a1d3683ba7d61f56d76bb438d864"
-  integrity sha512-Sip4KOd+CEYt/aA6ZZAQYTSoGgCEogy4Y00OoBGOn6tgiDkLGtZJwyIw7JEvxJoXR7JwnN0dLOi0zw6D87mBTQ==
+pro-web-app-cli-api-service@^1.0.10:
+  version "1.0.10"
+  resolved "http://localhost:4873/pro-web-app-cli-api-service/-/pro-web-app-cli-api-service-1.0.10.tgz#4228bfa90157a799bd4093a377436050a594b9ae"
+  integrity sha512-V+NCLWDijmKEu+Hto/mneXRTFzXI2Dh0kOBDhTMWTL305mpKDZ2cQXAHTcEYzOUfeeVrAIAjz4GEwsXtYLsK5g==
   dependencies:
-    pro-web-common "^1.0.10"
+    axios "^0.22.0"
+    pro-web-common "^1.0.6"
+
+pro-web-app-cli-state-manager@^1.0.22:
+  version "1.0.22"
+  resolved "http://localhost:4873/pro-web-app-cli-state-manager/-/pro-web-app-cli-state-manager-1.0.22.tgz#2ea345169c9776a7e2331bc4eea39ae351ff024e"
+  integrity sha512-jphEph6SMX9xPy59AjUD1Kf8DJUzs+fZGNxnbu404Xz+hT4LlZ6CCPlYXuoX1AZNcSQp0IND7uYmNkGveSP3wQ==
+  dependencies:
+    pro-web-app-cli-api-service "^1.0.10"
+    pro-web-common "^1.0.19"
     redux "^4.1.1"
     redux-thunk "^2.4.0"
 
-pro-web-common@^1.0.10:
-  version "1.0.10"
-  resolved "http://localhost:4873/pro-web-common/-/pro-web-common-1.0.10.tgz#df7959750767b72ec0196cb4b228996060948ec1"
-  integrity sha512-7qS3RBntC2gEUod4VLQIqeZ7hUHZzyfV0nSTsQImLUULHNFJkL1KagmHnrGJ7CI56hniT5pUD20gwXSEVBwxJA==
+pro-web-common@^1.0.19, pro-web-common@^1.0.6:
+  version "1.0.19"
+  resolved "http://localhost:4873/pro-web-common/-/pro-web-common-1.0.19.tgz#89735dea2ad9b36ca8016d49da9b5f3402186a23"
+  integrity sha512-5MXbXWHg+l9dDCs0O0l83yaI/GfQTTgnw2qtkDyIkrv3oSt6OgrSHyX8IeuQb5iNa1sSxFmSl1LFOpeEniFIEQ==
+  dependencies:
+    mysql2 "^2.3.2"
+    yup "^0.32.11"
+
+pro-web-common@^1.0.21:
+  version "1.0.21"
+  resolved "http://localhost:4873/pro-web-common/-/pro-web-common-1.0.21.tgz#e745be81e890267716b8044d5f57f9814cdb2db1"
+  integrity sha512-AkbxoBQHRi56BJdPq6tuBO3fScQrv66fjCN1gK1yECM2tUPUjpgtIQr/DmGvgKHL5WmHXvdb2V0QYaLIbDv18A==
   dependencies:
     mysql2 "^2.3.2"
     yup "^0.32.11"

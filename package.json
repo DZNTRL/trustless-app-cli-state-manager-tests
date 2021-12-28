@@ -16,8 +16,9 @@
   "dependencies": {
     "@types/mocha": "^9.0.0",
     "@types/should": "^13.0.0",
-    "pro-web-app-cli-state-manager": "^1.0.19",
-    "pro-web-common": "^1.0.10",
+    "pro-web-app-cli-api-service": "^1.0.10",
+    "pro-web-app-cli-state-manager": "^1.0.22",
+    "pro-web-common": "^1.0.21",
     "redux-thunk": "^2.3.0"
   }
 }

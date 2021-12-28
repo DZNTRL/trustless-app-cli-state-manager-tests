@@ -1,6 +1,6 @@
 import "should"
 import configureMockStore from "redux-mock-store"
-import { User as UserServiceStub } from "pro-web-common/dist/js/stubs/api-service/UserServiceStub"
+import { User as UserServiceStub, goodUser, goodChallenge, User } from "pro-web-common/dist/js/stubs/api-service/UserServiceStub"
 import thunk from "redux-thunk"
 import { StateManager } from "pro-web-app-cli-state-manager"
 import { UserActionKeys } from "pro-web-common/dist/js/enums/state-manager/UserActionKeys"
@@ -20,9 +20,9 @@ describe("User Actions Suite: should generate dispatch with property type and pa
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
                 { type: UserActionKeys.CHECK_USERNAME, payload: true },
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
-                { type: UserActionKeys.SET_CREATE_USERNAME, payload: "TEST"}
+                { type: UserActionKeys.SET_CREATE_USERNAME, payload: goodUser}
             ]
-            await StateManager.actions.user(svc).checkUsername("TEST")(store.dispatch)
+            await StateManager.actions.user(svc).checkUsername(goodUser)(store.dispatch)
             const actions = store.getActions()
             //@ts-ignore
             should(actions).eql(expectedActions)
@@ -62,9 +62,11 @@ describe("User Actions Suite: should generate dispatch with property type and pa
                 { type:  AppActionKeys.SET_NOTIFICATION, payload: { type: Notifications.success, message: "User Created" } },
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
-                { type: UserActionKeys.REQUEST_LOGIN, payload: "TEST"}
+                { type: UserActionKeys.SET_USERNAME, payload: goodUser },
+                { type: UserActionKeys.REQUEST_LOGIN, payload: goodChallenge}
             ]
-            StateManager.actions.user(svc).createUser("TEST", "TEST")(store.dispatch)
+            console.log("goodUser", goodUser)
+            StateManager.actions.user(svc).createUser(goodUser, goodChallenge)(store.dispatch)
             setTimeout(() => {
                 const actions = store.getActions()
                 should(actions).eql(expectedActions)
@@ -107,9 +109,10 @@ describe("User Actions Suite: should generate dispatch with property type and pa
             const expectedActions = [
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
-                { type: UserActionKeys.REQUEST_LOGIN, payload: "TEST"}
+                { type: UserActionKeys.SET_USERNAME, payload: goodUser },
+                { type: UserActionKeys.REQUEST_LOGIN, payload: goodChallenge}
             ]
-            await StateManager.actions.user(svc).requestLogin("TEST")(store.dispatch)
+            await StateManager.actions.user(svc).requestLogin(goodUser)(store.dispatch)
             const actions = store.getActions()
             should(actions).eql(expectedActions)
         })
@@ -143,10 +146,10 @@ describe("User Actions Suite: should generate dispatch with property type and pa
             const expectedActions = [
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.loading },
                 { type: AppActionKeys.SET_LOADING, payload: LoadingStates.ready },
-                { type: UserActionKeys.SET_USERNAME, payload: "TEST"},
+                { type: UserActionKeys.SET_USERNAME, payload: goodUser},
                 { type: AppActionKeys.SET_NOTIFICATION, payload: { type: Notifications.success, message: ResponseMessages.OK.toString()} }
             ]
-            StateManager.actions.user(svc).login("TEST", "TEST")(store.dispatch)
+            StateManager.actions.user(svc).login(goodUser, goodChallenge)(store.dispatch)
             setTimeout(() => {
                 const actions = store.getActions()
                 should(actions).eql(expectedActions)
